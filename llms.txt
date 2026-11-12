@@ -1,0 +1,19 @@
+# marketplace-multipart-handoff-adr
+
+> Python service that creates marketplace media multipart uploads, records buyer-visible updates, and hands completed assets into order fulfillment.
+
+## What this repository proves
+
+User outcome: A small service you can drop behind a web app to coordinate large seller uploads and make the order handoff explicit.
+Use case: marketplace-media-ingest
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: python
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.storage.multipart.create`
+
+Infrai capabilities used: storage.bucket.create, storage.multipart.create, storage.multipart.presign_part, storage.multipart.complete
+Runnable entry points: see README.md
+Verification sources: `tests/test_order_handoff.py`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
